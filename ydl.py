@@ -11,20 +11,30 @@ from posixpath import join as urljoin
 DL_LOC = os.path.join(os.path.dirname(os.path.realpath(__file__)), "dl/")
 
 # Input
-url = input('Please enter a comic URL: ')
+if len(argv) < 2:
+    print("Usage: {} <yiffer.xyz comic url>".format(argv[0]))
+    exit(1)
+
+url = argv[1]
 
 def download_comic(url, DL_LOC):
     # Vars
     img_id = 1
     err = None
 
-    # TODO: Iterate until error
-    # This is infinite currently as yiffer.xyz doesn't return an error for 404, instead loading a blank page :(
+    # Get comic name and create dir in dl/
+    cname = url.split("/")[-1].replace("%20", "_")
+    try:
+        os.mkdir(DL_LOC + "/" + cname)
+    except:
+        print("Comic directory already exists: '{}'".format(cname))
+
+    # Iterate until error (not graceful but works TM)
     while err is None:
-        err = download_image(url, DL_LOC, img_id)
+        err = download_image(url, DL_LOC, cname, img_id)
         img_id = img_id + 1
 
-def download_image(url, DL_LOC, img_id):
+def download_image(url, DL_LOC, cname, img_id):
     # Parse URL
     # format: ../comics/<comic name>/xxx.jpg
     img_url = urljoin(
@@ -34,6 +44,11 @@ def download_image(url, DL_LOC, img_id):
     url_parsed = urllib.parse.urlparse(url)
     base_url = '{uri.scheme}://static.{uri.netloc}/'.format(uri=url_parsed)
     dl_url = urljoin(base_url, img_url)
+
+    # Check image exists
+    if os.path.isfile(os.path.join(DL_LOC + "/" + cname + "/" + '{}'.format(img_id) + ".jpg")):
+        print("Image already exists: {}".format(img_url))
+        return None
 
     # Download image
     res = requests.get(dl_url, stream = True)
@@ -52,7 +67,7 @@ def download_image(url, DL_LOC, img_id):
 if __name__ == "__main__":
     # Make sure the dl directory exists
     try: os.mkdir(DL_LOC)
-    except: print('Download directory exists, skipping mkdir...')
+    except: pass
 
     # Run script
     download_comic(url, DL_LOC)
