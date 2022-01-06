@@ -5,6 +5,10 @@ Downloads comics as images from yiffer.xyz. Inspired by https://github.com/TNTIN
 - [Requests](https://pypi.org/project/requests/)
 
 ## Use:
-Run `./yiffer-dl.py` or add to your sys path, or your shell as an alias.
+Run `ydl.py` or add to your sys path, or your shell as an alias
 
-Images are saved to ./dl/.
+```
+python ydl.py https://yiffer.xyz/comic%20name%20here 
+```
+
+Images are saved to ./dl/<comic name>
