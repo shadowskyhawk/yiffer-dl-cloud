@@ -47,7 +47,7 @@ def download_image(url, DL_LOC, cname, img_id):
 
     # Check image exists
     if os.path.isfile(os.path.join(DL_LOC + "/" + cname + "/" + '{}'.format(img_id) + ".jpg")):
-        print("Image already exists: {}".format(img_url))
+        print("Image already exists: {}".format(img_id) + ".jpg")
         return None
 
     # Download image
@@ -61,7 +61,7 @@ def download_image(url, DL_LOC, cname, img_id):
             shutil.copyfileobj(res.raw, f)
         print('Downloaded image ' + '{}'.format(img_id))
     else:
-        print('Error: Image ' + '{}'.format(img_id) + 'could not be retrieved')
+        print('Error: Image ' + '{}'.format(img_id) + ' could not be retrieved')
         return res.status_code
 
 if __name__ == "__main__":
