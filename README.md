@@ -11,4 +11,4 @@ Run `ydl.py` or add to your sys path, or your shell as an alias
 python ydl.py https://yiffer.xyz/comic%20name%20here 
 ```
 
-Images are saved to ./dl/<comic name>
+Images are saved to ./dl/comic_name_here/
