@@ -3,7 +3,7 @@ Downloads comics as images from yiffer.xyz
 
 ### DEPS
 - Python 3.x
-- [Requests](https://pypi.org/project/requests/)
+- [Requests 2.x](https://pypi.org/project/requests/)
 
 ### INSTALL
 Clone this repo, and either:
