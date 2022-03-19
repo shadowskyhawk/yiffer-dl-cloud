@@ -27,7 +27,8 @@ def download_comic(url, DL_LOC):
     # Get comic name and create dir in dl/
     cname = url.split("/")[-1].replace("%20", "_")
     try:
-        os.mkdir(DL_LOC + "/" + cname)
+        DL_LOC = os.path.join(DL_LOC, cname+"/")
+        os.mkdir(DL_LOC)
     except:
         print("Comic directory already exists: '{}'".format(cname))
 
