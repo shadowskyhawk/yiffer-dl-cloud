@@ -11,8 +11,8 @@ If on Linux or MacOS, run the installer using:
 ```
 git clone https://github.com/kiosion/yiffer-dl && \
 cd yiffer-dl && \
-chmod +x ./install && \
-sudo ./install
+chmod +x ./install.sh && \
+sudo ./install.sh
 ```
 
 #### Manual:
