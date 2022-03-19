@@ -17,7 +17,7 @@ Command syntax is:
 python3 ydl.py https://yiffer.xyz/comic%20name%20here 
 ```
 
-Images are saved to ./dl/comic_name_here/
+Images are saved to ~/ydl/comic_name_here/
 
 ### CREDITS
 
