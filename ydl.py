@@ -6,9 +6,11 @@ from sys import argv
 import shutil
 import urllib.request
 from posixpath import join as urljoin
+from os.path import expanduser
 
 # Constants
-DL_LOC = os.path.join(os.path.dirname(os.path.realpath(__file__)), "dl/")
+U_HOME = expanduser("~")
+DL_LOC = os.path.join(U_HOME, "ydl/")
 
 # Input
 if len(argv) < 2:
