@@ -6,20 +6,23 @@ Downloads comics as images from yiffer.xyz
 - [Requests 2.x](https://pypi.org/project/requests/)
 
 ### INSTALL
+#### Auto:
+If on Linux or MacOS, run the installer using:
+```
+git clone https://github.com/kiosion/yiffer-dl && \
+cd yiffer-dl && \
+chmod +x ./install && \
+sudo ./install
+```
 
 #### Manual:
-Clone this repo, and either:
+Else, clone this repo (`git clone https://github.com/kiosion/yiffer-dl`), and either:
 - Run directly with python
 - Add to your system PATH
 - Add to your shell as an alias
 
-#### Auto:
-Or if on Linux/MacOS, run the installer using:
-```
-git clone git@github.com:kiosion/yiffer-dl.git && cd yiffer-dl && chmod +x ./install && sudo ./install
-```
-
-Command syntax is:
+### USAGE
+The syntax for commands is:
 
 ```
 python3 ydl.py https://yiffer.xyz/comic%20name%20here 
