@@ -51,7 +51,7 @@ def download_comic(name, DL_LOC):
         err = download_image(DL_LOC, cname, img_id)
         img_id = img_id + 1
         if img_id > comic_length:
-            print("=> Done!")
+            print("=> Done downloading...")
             zip_files(DL_LOC, cname)
             break
 
@@ -85,9 +85,6 @@ def zip_files(DL_LOC, cname):
     print("=> Done!")
 
 if __name__ == "__main__":
-    # Make sure the dl directory exists
     try: os.mkdir(DL_LOC)
     except: pass
-
-    # Run script
     download_comic(name, DL_LOC)
