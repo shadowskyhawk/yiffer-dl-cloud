@@ -25,10 +25,11 @@ Else, clone this repo (`git clone https://github.com/kiosion/yiffer-dl`), and ei
 The syntax for commands is:
 
 ```
-python3 ydl.py https://yiffer.xyz/comic%20name%20here 
+python3 ydl.py "Comic Name"
 ```
 
-Images are saved to ~/ydl/comic_name_here/
+Images are saved to ~/ydl/comic_name/Imgs/
+An archive of the images is saved to ~/ydl/comic_name/comic_name.zip
 
 ### CREDITS
 
