@@ -5,14 +5,11 @@ import requests
 import json
 from sys import argv
 import shutil
-from shutil import make_archive
-import urllib.request
 from posixpath import join as urljoin
-from os.path import expanduser
 from zipfile import ZipFile
 
 # Constants
-U_HOME = expanduser("~")
+U_HOME = os.path.expanduser("~")
 DL_LOC = os.path.join(U_HOME, "ydl/")
 
 # Input
@@ -84,7 +81,7 @@ def download_image(DL_LOC, cname, img_id):
 
 def zip_files(DL_LOC, cname):
     print("=> Zipping files...")
-    make_archive(os.path.join(DL_LOC, cname) + f"/{cname}", "zip", os.path.join(DL_LOC, cname, "Imgs"))
+    shutil.make_archive(os.path.join(DL_LOC, cname) + f"/{cname}", "zip", os.path.join(DL_LOC, cname, "Imgs"))
     print("=> Done!")
 
 if __name__ == "__main__":
