@@ -35,7 +35,7 @@ def download_comic(name, DL_LOC):
     try:
         os.mkdir(os.path.join(DL_LOC, cname, "Imgs"))
     except:
-        print(f"Comic directory already exists: '{cname}'")
+        print(f"Comic directory already exists: '{cname}/Imgs'")
     
     # Get comic info from API (length, url)
     cname_api_url = ("https://yiffer.xyz/api/comics/"+cname_url)
@@ -64,8 +64,8 @@ def download_image(DL_LOC, cname, img_id):
     dl_url = urljoin("https://static.yiffer.xyz/", img_url)
 
     # Check image exists
-    if os.path.isfile(os.path.join(DL_LOC, cname, "Imgs") + f"/{img_id}.jpg"):
-        print(f"Image already exists: {img_id}.jpg")
+    if os.path.isfile(os.path.join(DL_LOC, cname, "Imgs") + "/" + f"00{img_id}.jpg"[-7:]):
+        print(f"Image already exists: '{img_id}.jpg'")
         return None
 
     # Download image
@@ -81,6 +81,10 @@ def download_image(DL_LOC, cname, img_id):
 
 def zip_files(DL_LOC, cname):
     print("=> Zipping files...")
+    if os.path.isfile(os.path.join(DL_LOC, cname) + f"/{cname}.zip"):
+        print(f"Zip already exists: '{cname}.zip'")
+        print("=> Done!")
+        return None
     shutil.make_archive(os.path.join(DL_LOC, cname) + f"/{cname}", "zip", os.path.join(DL_LOC, cname, "Imgs"))
     print("=> Done!")
 
