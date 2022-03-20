@@ -9,7 +9,12 @@
 
 ### INSTALL
 #### Auto:
-If on Linux or MacOS, run the installer using:
+If on Linux or MacOS:
+Install Requests:
+```
+python3 -m pip install requests
+```
+Then run the installer file using:
 ```
 git clone https://github.com/kiosion/yiffer-dl && \
 cd yiffer-dl && \
