@@ -51,23 +51,20 @@ def download_comic(name, DL_LOC):
 
     # Iterate for length of comic
     while err is None:
-        err = download_image(url, DL_LOC, cname, img_id)
+        err = download_image(DL_LOC, cname, img_id)
         img_id = img_id + 1
         if img_id > comic_length:
             print("=> Done!")
             zip_files(DL_LOC, cname)
             break
 
-def download_image(url, DL_LOC, cname, img_id):
+def download_image(DL_LOC, cname, img_id):
     # Parse URL
-    # format: ../comics/<comic name>/xxx.jpg
     img_url = urljoin(
         "comics/", 
-        url.split("/")[-1], 
-        "{0:03d}.jpg".format(img_id))
-    url_parsed = urllib.parse.urlparse(url)
-    base_url = "{uri.scheme}://static.{uri.netloc}/".format(uri=url_parsed)
-    dl_url = urljoin(base_url, img_url)
+        cname.replace(" ", "%20"), 
+        f"00{img_id}.jpg"[-7:])
+    dl_url = urljoin("https://static.yiffer.xyz/", img_url)
 
     # Check image exists
     if os.path.isfile(os.path.join(DL_LOC, cname, "Imgs") + f"/{img_id}.jpg"):
@@ -76,10 +73,7 @@ def download_image(url, DL_LOC, cname, img_id):
 
     # Download image
     res = requests.get(dl_url, stream = True)
-
-    # Save if res is OK
     if res.status_code == 200:
-        # Save image
         with open(os.path.join(DL_LOC, cname, "Imgs") + "/" + f"00{img_id}.jpg"[-7:], 'wb') as f:
             res.raw.decode_content = True
             shutil.copyfileobj(res.raw, f)
