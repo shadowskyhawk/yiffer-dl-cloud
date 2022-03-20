@@ -21,11 +21,5 @@ cat $(SCRIPT_DIR)/ydl.py >> /usr/bin/ydl
 # Else, error
 echo "Error, could not write file contents!" && exit
 }
-{
-# Install requests
-python3 -m pip install requests
-} || {
-# Else, error
-echo "Error, could not automatically install requests! Please install manually" && exit
-}
+echo "Script moved to '/usr/bin/ydl'!"
 exit
