@@ -8,8 +8,7 @@
 - [Requests 2.x](https://pypi.org/project/requests/)
 
 ### INSTALL
-#### Auto:
-If on Linux or MacOS:
+#### Auto (if on Linux or MacOS):
 Install Requests:
 ```
 python3 -m pip install requests
