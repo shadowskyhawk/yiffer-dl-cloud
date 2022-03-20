@@ -1,6 +1,8 @@
-# yiffer-dl
-Downloads comics as images from yiffer.xyz
-
+<div align=center>
+  <h1>yiffer-dl</h1>
+  <p>Simple CLI tool to download comics from yiffer.xyz.<br>Downloads by comic name, and saves original images + .zip file for use with comic readers</p>
+</div>
+  
 ### DEPS
 - Python 3.x
 - [Requests 2.x](https://pypi.org/project/requests/)
@@ -16,8 +18,16 @@ sudo ./install.sh
 ```
 
 #### Manual:
-Else, clone this repo (`git clone https://github.com/kiosion/yiffer-dl`), and either:
-- Run directly with python
+Install Requests:
+```
+python3 -m pip install requests
+```
+Clone the repo:
+```
+git clone https://github.com/kiosion/yiffer-dl
+```
+Either:
+- Run directly with python (`python3 ./ydl.py`)
 - Add to your system PATH
 - Add to your shell as an alias
 
@@ -28,7 +38,7 @@ The syntax for commands is:
 python3 ydl.py "Comic Name"
 ```
 
-Images are saved to ~/ydl/comic_name/Imgs/
+Image files are saved to ~/ydl/comic_name/Imgs
 An archive of the images is saved to ~/ydl/comic_name/comic_name.zip
 
 ### CREDITS
