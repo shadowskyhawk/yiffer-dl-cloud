@@ -59,7 +59,7 @@ def download_image(DL_LOC, cname, img_id):
     # Parse URL
     img_url = urljoin(
         "comics/", 
-        cname.replace(" ", "%20"), 
+        cname.replace("_", "%20"), 
         f"00{img_id}.jpg"[-7:])
     dl_url = urljoin("https://static.yiffer.xyz/", img_url)
 
@@ -76,7 +76,7 @@ def download_image(DL_LOC, cname, img_id):
             shutil.copyfileobj(res.raw, f)
         print("Downloaded image " + f"00{img_id}"[-3:])
     else:
-        print('Error: Image ' + '{}'.format(img_id) + ' could not be retrieved')
+        print(f"Error {res.status_code}: Image {img_id} could not be retrieved")
         return res.status_code
 
 def zip_files(DL_LOC, cname):
