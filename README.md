@@ -1,6 +1,6 @@
 <div align=center>
   <h1>yiffer-dl</h1>
-  <p>Simple CLI tool to download comics from yiffer.xyz.<br>Downloads by comic name, and saves original images + .zip file for use with comic readers</p>
+  <p>Simple CLI tool to download comics from yiffer.xyz.<br>Downloads by comic name, saves original images and a zip file for use with comic readers</p>
 </div>
   
 ### DEPS
