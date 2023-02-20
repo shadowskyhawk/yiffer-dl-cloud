@@ -6,7 +6,7 @@
 ### DEPS
 - Python 3.x
 - [Requests 2.x](https://pypi.org/project/requests/)
-- [pyocclient] (https://github.com/owncloud/pyocclient)
+- [pyocclient](https://github.com/owncloud/pyocclient)
 
 ### INSTALL
 #### Auto (if on Linux or MacOS):
@@ -17,7 +17,7 @@ python3 -m pip install pyocclient
 ```
 Then run the installer file using:
 ```
-git clone https://github.com/kiosion/yiffer-dl && \
+git clone https://github.com/shadowskyhawk/yiffer-dl-cloud && \
 cd yiffer-dl && \
 chmod +x ./install.sh && \
 sudo ./install.sh
