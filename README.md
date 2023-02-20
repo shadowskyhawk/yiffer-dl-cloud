@@ -10,6 +10,7 @@
 
 ### INSTALL
 #### Auto (if on Linux or MacOS):
+Note: The installer is unsupported as of right now, as the program looks for config.py in the same folder. Will be updated soon to find the file in the user folder.
 Install Requests and pyocclient:
 ```
 python3 -m pip install requests pyocclient
@@ -21,6 +22,7 @@ cd yiffer-dl-cloud && \
 chmod +x ./install.sh && \
 sudo ./install.sh
 ```
+-- copy config.py to ~/.ydl-config -- coming soon
 
 #### Manual:
 Install Requests and pyocclient:
@@ -31,6 +33,7 @@ Clone the repo:
 ```
 git clone https://github.com/shadowskyhawk/yiffer-dl-cloud
 ```
+Edit config.py to your liking
 Either:
 - Run directly with python (`python3 ./ydl.py`)
 - Add to your system PATH
@@ -40,7 +43,7 @@ Either:
 ### Configure
 The file config.py is used for setting your cloud server credentials.
 - downloadFolder - Local folder to download comics to. Default is ~/yiff-dl
-- archiveFolder - Local folder all zip/cbz files are loaded into. Handy if you don't want them in subfolders.
+- archiveFolder - Local folder all zip/cbz files are loaded into. Handy if you don't want them in subfolders. Can be set to 'subfolders' without quotes if you prefer.
 - user - Your cloud username
 - pass - Your cloud password
 - server - The base URL leading to your cloud server (e.g. "https://cloud.example.com/")
@@ -56,12 +59,12 @@ The syntax for commands is:
 python3 ydl.py "Comic Name"
 ```
 
-Image files are saved to ~/yiff-dl/comic_name/Imgs
+Image files are saved to ~/yiff-dl/comic_name/Images
 An archive of the images is by default saved to ~/yiff-dl/comic_name/comic_name.zip, or where defined in config.py
 The archive is then uploaded to the cloud based on your server url, cloud folder, and selected format.
 
 ### PLANNED FEATURES
-- Choosing local download folder
+- --Choosing local download folder-- done
 - Toggling archiving, if you just want the images without zipping
 - Toggling cloud support, in case you just want to download locally
 - Uploading the images instead of the archive
