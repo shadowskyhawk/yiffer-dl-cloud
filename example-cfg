@@ -1,9 +1,6 @@
-# Default configuration
-# Rename this to config.py before running
-
 # Local download folder
-downloadFolder = "~/yiff-dl"
-archiveFolder = "~/yiff-dl"
+downloadFolder = "~/yiff-dl/images"
+archiveFolder = "~/yiff-dl/comics"
 
 # Your cloud credentials
 username = "test"
@@ -16,7 +13,7 @@ uploadFormat = "zip"
 
 # The following line configures how spaces are handled. By default
 # spaces in the filenames are replaced with underscores, but you can
-# set this as spaces (at your own risk), dashes, or anything you prefer.
+# replace them with a space, a dash, or anything you prefer.
 space = "_"
 
 # Unused but planned options
