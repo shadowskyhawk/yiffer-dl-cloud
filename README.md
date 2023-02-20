@@ -12,8 +12,7 @@
 #### Auto (if on Linux or MacOS):
 Install Requests and pyocclient:
 ```
-python3 -m pip install requests
-python3 -m pip install pyocclient
+python3 -m pip install requests pyocclient
 ```
 Then run the installer file using:
 ```
@@ -26,8 +25,7 @@ sudo ./install.sh
 #### Manual:
 Install Requests and pyocclient:
 ```
-python3 -m pip install requests
-python3 -m pip install pyocclient
+python3 -m pip install requests pyocclient
 ```
 Clone the repo:
 ```
@@ -67,4 +65,4 @@ The archive is then uploaded to Nextcloud based on your server url and selected 
 
 ### CREDITS
 
-Based on https://github.com/kiosion/yiffer-dl, which was itself based off of https://github.com/TNTINC/yiffer-dl, modified to add cloud upload support.
+Based on https://github.com/kiosion/yiffer-dl, which is itself based off of https://github.com/TNTINC/yiffer-dl, modified to add cloud upload support.
