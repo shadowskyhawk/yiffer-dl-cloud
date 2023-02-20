@@ -39,14 +39,14 @@ Either:
 
 ### Configure
 The file config.py is used for setting your cloud server credentials.
-downloadFolder - Local folder to download comics to. Default is ~/yiff-dl
-archiveFolder - Local folder all zip/cbz files are loaded into. Handy if you don't want them in subfolders.
-user - Your cloud username
-pass - Your cloud password
-server - The base URL leading to your cloud server (e.g. "https://cloud.example.com/")
-uploadFolder - The folder on your cloud server you would like to upload to (e.g. "Yiff/Comics")
-uploadFormat - Defines the extension of the uploaded file. Default is .zip, but you can change this to "cbz" if you want.
-space - Defines the seperator character for filenames. Default is an underscore (_) but can be replaced with a space or dash.
+- downloadFolder - Local folder to download comics to. Default is ~/yiff-dl
+- archiveFolder - Local folder all zip/cbz files are loaded into. Handy if you don't want them in subfolders.
+- user - Your cloud username
+- pass - Your cloud password
+- server - The base URL leading to your cloud server (e.g. "https://cloud.example.com/")
+- uploadFolder - The folder on your cloud server you would like to upload to (e.g. "Yiff/Comics")
+- uploadFormat - Defines the extension of the uploaded file. Default is .zip, but you can change this to "cbz" if you want.
+- space - Defines the seperator character for filenames. Default is an underscore (_) but can be replaced with a space or dash.
 
 
 ### USAGE
