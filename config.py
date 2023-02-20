@@ -1,6 +1,6 @@
 # Local download folder
-downloadFolder = "~/yiffer-dl/images"
-archiveFolder = "~/yiffer-dl/comics"
+downloadFolder = "~/yiff-dl/images"
+archiveFolder = "~/yiff-dl/comics"
 
 # Your cloud credentials
 username = "test"
