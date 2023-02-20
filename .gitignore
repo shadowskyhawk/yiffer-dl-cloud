@@ -5,3 +5,4 @@ __pycache__/*
 # ignore config so I can test without uploading credentials
 config.py
 *.kate-swp
+config.py
