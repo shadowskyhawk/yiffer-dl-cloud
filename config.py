@@ -1,20 +1,21 @@
-# Local download folder
-downloadFolder = "~/yiff-dl/images"
-archiveFolder = "~/yiff-dl/comics"
+# Local download folders
+downloadFolder = "~/yiff-dl/"
+archiveFolder = "~/yiff-dl/zips"
 
 # Your cloud credentials
-username = "test"
-password = "pass123"
-server = "https://cloud.example.com/"
-uploadFolder = "Yiff/Comics"
+username = "shadowskyhawk"
+password = "Vanilla52&Games"
+server = "https://cloud.trainermax.duckdns.org/"
+uploadFolder = "Adult/Furry/Comics"
 
 # Format of uploaded archive. Options are cbz or zip.
-uploadFormat = "zip"
+uploadFormat = "cbz"
 
 # The following line configures how spaces are handled. By default
-# spaces in the filenames are replaced with underscores, but you can
-# replace them with a space, a dash, or anything you prefer.
-space = "_"
+# spaces in the filenames are replaced with dashes, but if you'd like
+# you can replace them with a space, an underscore, or anything you'd 
+# prefer to use.
+space = " "
 
 # Unused but planned options
 upload = "y"

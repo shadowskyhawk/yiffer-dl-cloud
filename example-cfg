@@ -1,6 +1,10 @@
-# Local download folder
-downloadFolder = "~/yiff-dl/images"
-archiveFolder = "~/yiff-dl/comics"
+# Sample configuration
+# Be sure to rename to config.py before running ydl.py
+
+# Local download folders
+# Please don't use relative home (~), I broke it and it's not currently working
+downloadFolder = "~/yiff-dl/"
+archiveFolder = "~/yiff-dl/zips"
 
 # Your cloud credentials
 username = "test"
@@ -15,9 +19,3 @@ uploadFormat = "zip"
 # spaces in the filenames are replaced with underscores, but you can
 # replace them with a space, a dash, or anything you prefer.
 space = "_"
-
-# Unused but planned options
-upload = "y"
-archive = "y"
-imageUpload = "n"
-archiveUpload = "y"

@@ -41,9 +41,9 @@ Either:
 
 
 ### Configure
-The file config.py is used for setting your cloud server credentials.
-- downloadFolder - Local folder to download comics to. Default is ~/yiff-dl
-- archiveFolder - Local folder all zip/cbz files are loaded into. Handy if you don't want them in subfolders. Can be set to 'subfolders' without quotes if you prefer.
+The file example-cfg is included and should be renamed to config.py before running ydl.py. Config.py is used for setting your cloud server credentials and download preferences. 
+- downloadFolder - Local folder to download comics to.
+- archiveFolder - Local folder all zip files are stored.
 - user - Your cloud username
 - pass - Your cloud password
 - server - The base URL leading to your cloud server (e.g. "https://cloud.example.com/")
