@@ -10,10 +10,6 @@ from zipfile import ZipFile
 import owncloud
 import config
 
-# Constants
-U_HOME = os.path.expanduser("~")
-DL_LOC = os.path.join(U_HOME, config.downloadFolder)
-
 # Input
 if len(argv) < 2:
     print("Usage: {} <yiffer.xyz comic name>".format(argv[0]))
@@ -21,7 +17,7 @@ if len(argv) < 2:
 
 name = argv[1]
 
-def download_comic(name, DL_LOC):
+def download_comic(name, config):
     img_id = 1
     err = None
 
@@ -31,11 +27,11 @@ def download_comic(name, DL_LOC):
 
     # Create download folder based on comic name
     try:
-        os.mkdir(os.path.join(DL_LOC, cname))
+        os.mkdir(os.path.join({config.downloadFolder}, cname))
     except:
         print(f"Comic directory already exists: '{cname}'")
     try:
-        os.mkdir(os.path.join(DL_LOC, cname, "Images"))
+        os.mkdir(os.path.join({config.downloadFolder}, cname, "Images"))
     except:
         print(f"Comic directory already exists: '{cname}/Images'")
     
@@ -50,15 +46,15 @@ def download_comic(name, DL_LOC):
 
     # Iterate for length of comic
     while err is None:
-        err = download_image(DL_LOC, cname, img_id)
+        err = download_image({config.downloadFolder}, cname, img_id)
         img_id = img_id + 1
         if img_id > comic_length:
             print("=> Done downloading...")
-            zip_files(DL_LOC, cname)
-            cloud_upload(DL_LOC, cname, config)
+            zip_files({config.downloadFolder}, cname)
+            cloud_upload({config.downloadFolder}, cname, config)
             break
 
-def download_image(DL_LOC, cname, img_id):
+def download_image(config, cname, img_id):
     # Parse URL
     img_url = urljoin(
         "comics/", 
@@ -67,14 +63,14 @@ def download_image(DL_LOC, cname, img_id):
     dl_url = urljoin("https://static.yiffer.xyz/", img_url)
 
     # Check image exists
-    if os.path.isfile(os.path.join(DL_LOC, cname, "Images") + "/" + f"00{img_id}.jpg"[-7:]):
+    if os.path.isfile(os.path.join({config.downloadFolder}, cname, "Images") + "/" + f"00{img_id}.jpg"[-7:]):
         print(f"Image already exists: '{img_id}.jpg'")
         return None
 
     # Download image
     res = requests.get(dl_url, stream = True)
     if res.status_code == 200:
-        with open(os.path.join(DL_LOC, cname, "Images") + "/" + f"00{img_id}.jpg"[-7:], 'wb') as f:
+        with open(os.path.join({config.downloadFolder}, cname, "Images") + "/" + f"00{img_id}.jpg"[-7:], 'wb') as f:
             res.raw.decode_content = True
             shutil.copyfileobj(res.raw, f)
         print("Downloaded image " + f"00{img_id}"[-3:])
@@ -82,27 +78,27 @@ def download_image(DL_LOC, cname, img_id):
         print(f"Error {res.status_code}: Image {img_id} could not be retrieved")
         return res.status_code
 
-def zip_files(DL_LOC, cname):
+def zip_files(config, cname):
     print("=> Zipping files...")
     if os.path.isfile(config.archiveFolder + f"/{cname}.zip"):
         print(f"Comic file already exists: '{cname}.zip'")
         print("=> Done!")
         return None
-    shutil.make_archive(config.archiveFolder + f"/{cname}", "zip", os.path.join(DL_LOC, cname, "Images"))
+    shutil.make_archive(config.archiveFolder + f"/{cname}", "zip", os.path.join({config.downloadFolder}, cname, "Images"))
     print("=> Done!")
 
-def cloud_upload(DL_LOC, cname, config):
+def cloud_upload(cname, config):
     # Login to Nextcloud/Owncloud
     print("=> Logging in to cloud server")
     oc = owncloud.Client(config.server)
     oc.login(config.username, config.password)
     print("=> Done!")
-    print("=> Uploading {format}...")
+    print("=> Uploading {config.uploadFormat} ...")
     # upload file
-    oc.put_file(config.uploadFolder + f"/{cname}.{config.uploadFormat}", os.path.join(DL_LOC, cname) + f"/{cname}.zip")
+    oc.put_file(config.uploadFolder + f"/{cname}.{config.uploadFormat}", config.archiveFolder + f"/{cname}.zip")
     print("=> Done!")
 
 if __name__ == "__main__":
-    try: os.mkdir(DL_LOC)
+    try: os.mkdir({config.downloadFolder})
     except: pass
-    download_comic(name, DL_LOC)
+    download_comic(name, {config.downloadFolder})

@@ -1,2 +1,4 @@
 # Ignore dl folder
 dl/*
+# Ignore python cache
+__pycache__/*
